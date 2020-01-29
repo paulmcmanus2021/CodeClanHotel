@@ -37,4 +37,34 @@ public class BedroomTest {
         assertEquals("Single", bedroom1.getType());
     }
 
+    @Test
+    public void canAddGuestToBedroom (){
+        Guest guest = new Guest("Bob");
+        bedroom1.addGuest(guest);
+        assertEquals(1, bedroom1.checkGuestsInRoom());
+    }
+
+    @Test
+    public void canRemoveGuestFromBedroom(){
+        Guest guest = new Guest("Bob");
+        bedroom1.addGuest(guest);
+        bedroom1.removeGuest(guest);
+        assertEquals(0, bedroom1.checkGuestsInRoom());
+    }
+
+    @Test
+    public void checkCapacityNotFull(){
+        assertEquals(true, bedroom1.hasCapacity());
+    }
+
+    @Test
+    public void checkCapacityFull(){
+        Guest guest = new Guest("Bob");
+        bedroom1.addGuest(guest);
+        bedroom1.addGuest(guest);
+        bedroom1.addGuest(guest);
+        bedroom1.addGuest(guest);
+        bedroom1.addGuest(guest);
+        assertEquals(false, bedroom1.hasCapacity());
+    }
 }

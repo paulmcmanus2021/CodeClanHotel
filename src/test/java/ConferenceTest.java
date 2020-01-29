@@ -30,4 +30,34 @@ public class ConferenceTest {
         assertEquals(0, conference1.checkGuestsInRoom());
     }
 
+    @Test
+    public void canAddGuestToConference (){
+        Guest guest = new Guest("Bob");
+        conference1.addGuest(guest);
+        assertEquals(1, conference1.checkGuestsInRoom());
+    }
+
+    @Test
+    public void canRemoveGuestFromConference(){
+        Guest guest = new Guest("Bob");
+        conference1.addGuest(guest);
+        conference1.removeGuest(guest);
+        assertEquals(0, conference1.checkGuestsInRoom());
+    }
+
+    @Test
+    public void checkCapacityNotFull(){
+        assertEquals(true, conference1.hasCapacity());
+    }
+
+    @Test
+    public void checkCapacityFull(){
+        Guest guest = new Guest("Bob");
+        conference1.addGuest(guest);
+        conference1.addGuest(guest);
+        conference1.addGuest(guest);
+        conference1.addGuest(guest);
+        conference1.addGuest(guest);
+        assertEquals(false, conference1.hasCapacity());
+    }
 }

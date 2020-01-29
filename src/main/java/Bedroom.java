@@ -29,4 +29,16 @@ public class Bedroom {
     public String getType() {
         return type;
     }
+
+    public void addGuest(Guest guest) {
+        guests.add(guest);
+    }
+
+    public void removeGuest(Guest guest) {
+        guests.remove(guest);
+    }
+
+    public boolean hasCapacity() {
+        return capacity > checkGuestsInRoom();
+    }
 }

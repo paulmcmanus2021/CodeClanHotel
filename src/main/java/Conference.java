@@ -20,8 +20,19 @@ public class Conference {
         return capacity;
     }
 
-
     public int checkGuestsInRoom() {
         return this.guests.size();
+    }
+
+    public void addGuest(Guest guest) {
+        guests.add(guest);
+    }
+
+    public void removeGuest(Guest guest) {
+        guests.remove(guest);
+    }
+
+    public boolean hasCapacity() {
+        return capacity > checkGuestsInRoom();
     }
 }
