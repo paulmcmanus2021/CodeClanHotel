@@ -28,9 +28,9 @@ public class HotelTest {
 
         // Create empty room arraylist , create rooms, put rooms in list
         ArrayList<Bedroom> bedrooms = new ArrayList<Bedroom>();
-        bedroom1 = new Bedroom(1, 1, "Single");
-        bedroom2 = new Bedroom(2, 2, "Double");
-        bedroom3 = new Bedroom(4, 4, "Double");
+        bedroom1 = new Bedroom(1, 1, "Single", 5);
+        bedroom2 = new Bedroom(2, 2, "Double", 10);
+        bedroom3 = new Bedroom(4, 4, "Double", 15);
         bedrooms.add(bedroom1);
         bedrooms.add(bedroom2);
         bedrooms.add(bedroom3);
@@ -130,6 +130,7 @@ public class HotelTest {
     @Test
     public void canBookRoom(){
         Booking booking = new Booking(bedroom1,1);
+
         assertEquals(bedroom1, booking.getBedroom());
         assertEquals(1, booking.getNights());
     }

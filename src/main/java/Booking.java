@@ -15,4 +15,10 @@ public class Booking {
     public int getNights() {
         return nights;
     }
+
+    public int totalBill(){
+        int nights = getNights();
+        int rate = bedroom.getRate();
+        return nights * rate;
+    }
 }
