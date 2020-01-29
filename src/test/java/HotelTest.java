@@ -127,6 +127,13 @@ public class HotelTest {
         assertEquals(1, bedroom1.checkGuestsInRoom());
     }
 
+    @Test
+    public void canBookRoom(){
+        Booking booking = new Booking(bedroom1,1);
+        assertEquals(bedroom1, booking.getBedroom());
+        assertEquals(1, booking.getNights());
+    }
+
 
 
 }
